@@ -1,7 +1,7 @@
 # archlinux-appstream-data-libre
 Arch Linux application database for AppStream based software centers without nonfree suggestions and without support for services that are unsafe and dangerous for privacy
 
-***! this is work in progress (see task.txt), and these documentation are based on author research, im also apologize if my engliz is bad, thank you for all your interest and participation !***
+***! this is work in progress (see task.txt), and information presented are based on author research, im also apologize if my engliz is bad, thank you for all your interest and participation !***
 
 archlinux-appstream-data (aadl for short) provided local metadata necessary for appstream based software center to build software and plugin catalogues presented to user, then it talks to package manager to install, remove, or upgrade program of user choice.
 
