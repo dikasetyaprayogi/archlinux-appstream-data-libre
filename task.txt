@@ -1,0 +1,43 @@
+0.SOURCES
+i dont found any github for aadl for easy forking, so raw snapshot of latest package is used (currently ver. 20200516-1)
+page: https://www.archlinux.org/packages/extra/any/archlinux-appstream-data/
+
+1.REFERENCE
+knowledge reference:
+-arch seems dont have dedicated wiki about appstream yet
+-official appstream site: https://www.freedesktop.org/software/appstream/docs/index.html
+-official target software center site: https://wiki.gnome.org/Apps/Software
+-insight on how arch made appstream into local metadata: https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/archlinux-appstream-data
+-in contrast, debian use online synced style metadata: https://wiki.debian.org/AppStream
+
+reference used to blacklisting, currently recomended:
+-libreplanet list: https://libreplanet.org/wiki/
+-hyperbola blacklist: https://git.hyperbola.info:50100/software/blacklist.git/
+all changelogs of removal and addition shouldly be logged into aadl /blacklist.txt
+
+2.LIBERATING ICONS
+/usr/share/app-info/icons/
+as aadl only contains gui programs, the aadl icon source can be starting point and guide on what programs aadl currently shipping
+
+3.LIBERATING PROGRAMS
+/usr/share/app-info/xmls/
+the metadata exist in xmls form, after nonfree icons found then we can search respective nonfree icon s program names in those xmls and remove them.
+-decrompress the xml.gz
+-use your text editor
+-find any nonfree reference per residing within <component type="xxxxx"> and </component> andmove them altogether into blacklist.txt
+
+adding distro special packages also needed manually into xmls ex. iceweasel-uxp
+
+there is also case some program not provided by distro provider yet ex. celluloid (successor of gnome-mpv) this only need to be commented out and not removed expect for nonfree
+
+4.LIBERATING PLUGINS
+currently i dont know how to patch this as they are synced trough online repos, another solution is to disabled it alltogether in respective software center configuration, programs mainly comes with their plugin browser anyway
+
+tough some special addons exist in xmls, this also need to be inspected, look some in <component type="addon">
+
+5.CLEANING
+there are additional software sources function but dont know how to managing this so maybe will disabled it
+
+some missing license info in xmls made software center label the program propietary, this is not fatal but still need to be fixed
+
+there is also possibilities of displayed information difference as software center use some your distro basic repos data supplemented with aadl local metadata (archlinux version)
